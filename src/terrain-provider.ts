@@ -35,11 +35,11 @@ function gsiTerrainToGrid(png: ndarray<number>) {
             if (r === 128 && g === 0 && b === 0) {
                 terrain[y * gridSize + x] = 0;
             } else {
+                terrain[y * gridSize + x] =
+                    r >= 128
+                        ? r * 655.36 + g * 2.56 + b * 0.01 + -167772.16
+                        : r * 655.36 + g * 2.56 + b * 0.01;
             }
-            terrain[y * gridSize + x] =
-                r >= 128
-                    ? r * 655.36 + g * 2.56 + b * 0.01 + -167772.16
-                    : r * 655.36 + g * 2.56 + b * 0.01;
         }
     }
     // backfill right and bottom borders
