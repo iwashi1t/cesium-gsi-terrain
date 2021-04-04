@@ -258,7 +258,7 @@ class GsiTerrainProvider {
             southSkirtHeight: skirtHeight,
             eastSkirtHeight: skirtHeight,
             northSkirtHeight: skirtHeight,
-            childTileMask: 15,
+            childTileMask: 14,
         });
     }
 
