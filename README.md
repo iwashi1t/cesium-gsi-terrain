@@ -2,4 +2,4 @@
 
 # GsiTerrainProvider
 
-Cesium で、GSI-DEM を用いた標高表現を行うためのモジュール
+Cesium で国土地理院の標高タイルを用いた地形表現を行うためのモジュール
