@@ -32,12 +32,14 @@ function gsiTerrainToGrid(png: ndarray<number>) {
             const r = png.get(x, yc, 0);
             const g = png.get(x, yc, 1);
             const b = png.get(x, yc, 2);
-            const isNoDataValue = r === 128 && g === 0 && b === 0;
-            terrain[y * gridSize + x] = isNoDataValue
-                ? 0
-                : r * 655.36 + g * 2.56 + b * 0.01 + r >= 128
-                ? -167772.16
-                : 0;
+            if (r === 128 && g === 0 && b === 0) {
+                terrain[y * gridSize + x] = 0;
+            } else {
+            }
+            terrain[y * gridSize + x] =
+                r >= 128
+                    ? r * 655.36 + g * 2.56 + b * 0.01 + -167772.16
+                    : r * 655.36 + g * 2.56 + b * 0.01;
         }
     }
     // backfill right and bottom borders
