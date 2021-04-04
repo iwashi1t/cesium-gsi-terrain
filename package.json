@@ -1,40 +1,28 @@
 {
-  "name": "@macrostrat/cesium-martini",
-  "version": "1.0.1",
-  "description": "",
-  "main": "dist/index.js",
-  "scripts": {
-    "build": "rollup -c",
-    "watch": "rollup -c -w",
-    "dev": "webpack-dev-server",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "npm run build"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@here/quantized-mesh-decoder": "^1.1.3",
-    "@mapbox/martini": "^0.2.0",
-    "@rollup/plugin-node-resolve": "^7.1.3",
-    "@types/cesium": "^1.67.3",
-    "@types/ndarray": "^1.0.7",
-    "axios": "^0.19.2",
-    "cesium": "^1.68.0",
-    "get-pixels": "^3.3.2"
-  },
-  "devDependencies": {
-    "copy-webpack-plugin": "^5.1.1",
-    "css-loader": "^3.5.2",
-    "dotenv-webpack": "^1.7.0",
-    "file-loader": "^6.0.0",
-    "html-webpack-plugin": "^4.2.0",
-    "rollup-plugin-babel": "^4.4.0",
-    "source-map-loader": "^0.2.4",
-    "style-loader": "^1.1.4",
-    "ts-loader": "^7.0.0",
-    "typescript": "^3.8.3",
-    "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3"
-  }
+    "name": "GsiTerrainProvider",
+    "version": "1.0.0",
+    "description": "",
+    "main": "./dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "tsc",
+        "prepare": "npm run build"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "@here/quantized-mesh-decoder": "^1.1.3",
+        "@mapbox/martini": "^0.2.0",
+        "axios": "^0.19.2",
+        "cesium": "^1.68.0",
+        "get-pixels": "^3.3.2"
+    },
+    "devDependencies": {
+        "typescript": "^3.8.3",
+        "@types/cesium": "^1.67.3",
+        "@types/ndarray": "^1.0.7"
+    }
 }

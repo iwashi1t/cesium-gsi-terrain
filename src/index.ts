@@ -1,2 +1,2 @@
-import MapboxTerrainProvider from './terrain-provider'
-export default MapboxTerrainProvider
+import GsiTerrainProvider from './terrain-provider';
+export default GsiTerrainProvider;
