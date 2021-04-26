@@ -1,5 +1,5 @@
 {
-    "name": "GsiTerrainProvider",
+    "name": "cesium-gsi-terrain",
     "version": "1.0.0",
     "description": "Cesiumで国土地理院の標高タイルを用いた地形表現を行うためのモジュール",
     "keywords": [
