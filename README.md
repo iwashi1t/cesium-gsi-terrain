@@ -2,6 +2,8 @@
 
 # cesium-gsi-terrain
 
+sample: https://kanahiro.github.io/cesium-gsi-terrain/example/
+
 Arranged [https://github.com/davenquinn/cesium-martini](davenquinn/cesium-martini) for GSI-terrain.
 
 Cesium で国土地理院の標高タイルを用いた地形表現を行うためのモジュール
