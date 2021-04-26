@@ -15,7 +15,7 @@ npm install cesium-gsi-terrain
 ```javascript
 import GsiTerrainProvider from 'cesium-gsi-terrain';
 
-const viewer = new Viewer(canvas.value!, {
+const viewer = new Viewer(canvas, {
     terrainProvider: new GsiTerrainProvider({}),
 });
 ```
