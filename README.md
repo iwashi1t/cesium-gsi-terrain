@@ -1,6 +1,6 @@
 <img src='./img/mtfuji.png'>
 
-# GsiTerrainProvider
+# cesium-gsi-terrain
 
 Arranged [https://github.com/davenquinn/cesium-martini](davenquinn/cesium-martini) for GSI-terrain.
 
