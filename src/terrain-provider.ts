@@ -16,8 +16,6 @@ import {
 } from 'cesium';
 import ndarray from 'ndarray';
 // @ts-ignore
-import getPixels from 'get-pixels';
-// @ts-ignore
 import Martini from '@mapbox/martini';
 
 function gsiTerrainToGrid(png: ndarray<number>) {
@@ -93,7 +91,7 @@ class GsiTerrainProvider {
 
     async getPixels(url: string, type = ''): Promise<ndarray<number>> {
         return new Promise((resolve, reject) => {
-            getPixels(url, type, (err: Error, array: ndarray<number>) => {
+            defaultImage(url, (err: Error, array: ndarray<number>) => {
                 if (err != null) reject(err);
                 resolve(array);
             });
@@ -116,7 +114,7 @@ class GsiTerrainProvider {
             const tile = this.martini.createTile(terrain);
 
             // get a mesh (vertices and triangles indices) for a 10m error
-            console.log(`Error level: ${err}`);
+            // console.log(`Error level: ${err}`);
             const mesh = tile.getMesh(err);
 
             return await this.createQuantizedMeshData(x, y, z, tile, mesh);
@@ -291,6 +289,25 @@ class GsiTerrainProvider {
     getTileDataAvailable(x: number, y: number, z: number) {
         return z <= 14;
     }
+}
+
+// @ts-ignore
+function defaultImage(url, cb) {
+    var img = new Image()
+    img.crossOrigin = "Anonymous"
+    img.onload = function() {
+        var canvas = document.createElement('canvas')
+        canvas.width = img.width
+        canvas.height = img.height
+        var context = canvas.getContext('2d')!
+        context.drawImage(img, 0, 0)
+        var pixels = context.getImageData(0, 0, img.width, img.height)
+        cb(null, ndarray(new Uint8Array(pixels.data), [img.width, img.height, 4], [4, 4*img.width, 1], 0))
+    }
+    img.onerror = function(err) {
+        cb(err)
+    }
+    img.src = url
 }
 
 export default GsiTerrainProvider;
