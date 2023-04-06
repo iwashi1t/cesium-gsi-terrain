@@ -102,7 +102,7 @@ class GsiTerrainProvider {
         const mx = this.tilingScheme.getNumberOfYTilesAtLevel(z);
         const err = this.getLevelMaximumGeometricError(z);
 
-        const url = `https://cyberjapandata.gsi.go.jp/xyz/dem_png/${z}/${x}/${y}.png`;
+        const url = `https://cyberjapandata.gsi.go.jp/xyz/dem5a_png/${z}/${x}/${y}.png`;
 
         try {
             const pxArray = await this.getPixels(url);
@@ -114,7 +114,7 @@ class GsiTerrainProvider {
             const tile = this.martini.createTile(terrain);
 
             // get a mesh (vertices and triangles indices) for a 10m error
-            // console.log(`Error level: ${err}`);
+            console.log(`Error level: ${err}`);
             const mesh = tile.getMesh(err);
 
             return await this.createQuantizedMeshData(x, y, z, tile, mesh);
